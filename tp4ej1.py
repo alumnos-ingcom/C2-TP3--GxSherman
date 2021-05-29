@@ -7,7 +7,7 @@
 
 
 
-def ingreso_entero(mensaje,):
+def ingreso_entero(mensaje):
     """
     Esta funcion muestra un mensaje y agrega la # para indicar el ingreso
     de un número entero.
