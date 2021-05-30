@@ -24,7 +24,7 @@ def prueba():
     otro_numero = ingreso_real("Ingrese el segundo numero:")
     valor_final = compara(numero, otro_numero)
     print('', valor_final)
-    pass
+    
 
 
 if __name__ == "__main__":
