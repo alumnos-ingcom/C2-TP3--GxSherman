@@ -4,8 +4,6 @@
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
 
-from tp4ej1 import ingreso_entero
-
 def ordenar_mayor_a_menor(uno, dos, tres):
     a = min(uno, dos, tres)
     c = max(uno, dos, tres)
