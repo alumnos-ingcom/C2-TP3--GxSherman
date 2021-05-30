@@ -15,27 +15,23 @@ def ingreso_real(mensaje):
     return real
 
 def convertir_a_centigrados(fahrenheit):
-
     conversion = (fahrenheit - 32) * 5/9
-
     return conversion
 
 def convertir_a_fahrenheit(centigrados):
-    
     conversion = (centigrados * 9/5) + 32
-
     return conversion
 
 def prueba():
     print(" Programa para convertir grados °c a °f y viceversa")
-    i = ingreso_real(" si ingresa '1' convierte de °f a °c\n si ingresa '2' convierte de °c a °f ")
-    if i == 1:
+    tipo_conversion = ingreso_real(" si ingresa '1' convierte de °f a °c\n si ingresa '2' convierte de °c a °f ")
+    if int(tipo_conversion) == 1:
         fahrenheit = ingreso_real("Ingrese los grados Fahrenheit que desee convertir")
         resultado = convertir_a_centigrados(fahrenheit)
         print ('Celsius: ', resultado)
         
         
-    elif i == 2:
+    elif int(tipo_conversion) == 2:
         centigrados = ingreso_real("Ingrese los grados Celsius que desee convertir:")
         resultado = convertir_a_fahrenheit(centigrados)
         print ('Fahrenheit: ', resultado)
