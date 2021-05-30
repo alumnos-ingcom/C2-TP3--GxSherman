@@ -3,7 +3,10 @@
 # TP4 - Ejercicio 2 - Suma Lenta
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
- 
+
+
+
+#Corregido retornar valores por función y imprimir en prueba
 from tp4ej1 import ingreso_entero
  
 def suma_lenta(numero, otro_numero):
