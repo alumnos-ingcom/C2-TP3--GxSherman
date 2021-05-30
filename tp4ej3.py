@@ -4,6 +4,9 @@
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
 
+
+#Corregido nombre de la variable y contiene numero entero
+
 from tp4ej1 import IngresoIncorrecto
 
 def ingreso_real(mensaje):
