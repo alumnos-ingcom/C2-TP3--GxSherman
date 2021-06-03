@@ -4,16 +4,20 @@
 # UNRN Andina - Introducción a la Ingenieria en Computación
 ################
 
+from tp4ej6 import maximo
+from tp4ej6 import minimo
+
+
 def ordenar_mayor_a_menor(uno, dos, tres):
-    a = min(uno, dos, tres)
-    c = max(uno, dos, tres)
+    a = minimo((uno, dos, tres))
+    c = maximo((uno, dos, tres))
     b = (uno + dos + tres) - a - c
 
     return c, b, a
     
 def ordenar_menor_a_mayor(uno, dos, tres):
-    a = min(uno, dos, tres)
-    c = max(uno, dos, tres)
+    a = minimo((uno, dos, tres))
+    c = maximo((uno, dos, tres))
     b = (uno + dos + tres) - a - c
 
     return a, b, c

@@ -14,7 +14,13 @@ def division_lenta(dividendo, divisor):
         cociente = cociente +1
     return (cociente, resto)
     if divisor == 0:
-        return 0
+        raise DivisionPorCero("No se puede dividir por cero!")
+        
+class DivisionPorCero(Exception):
+    """
+    Excepción para cuando se intenta dividir por cero.
+    """
+    pass
     
 def prueba():
     
