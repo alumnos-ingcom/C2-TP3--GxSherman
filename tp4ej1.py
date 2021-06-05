@@ -10,26 +10,25 @@ def ingreso_entero(mensaje):
     Esta funcion muestra un mensaje y agrega la # para indicar el ingreso
     de un número entero.
     """
+    ingreso = input(mensaje + " #")
     try:
-        entero = int(input(mensaje + " #"))
+        entero = int(ingreso)
         return entero
-    except ValueError as e:
-        print(IngresoIncorrecto("Eso no era un numero, por favor ingrese un numero!!"))
-        return None
+    except ValueError as err:
+        raise IngresoIncorrecto(f"'{ingreso}' no era un numero!!!")
+    return entero 
 
 def ingreso_entero_reintento(mensaje, cantidad_reintentos=5):
   
-    cantidad_intentos = 0
-    entero = None
-    while entero == None and cantidad_intentos < cantidad_reintentos:
-        entero = ingreso_entero(mensaje)
-        cantidad_reintentos = cantidad_reintentos - 1
-        if entero == None:
-            print(F"Le quedan {cantidad_reintentos} intentos para ingresar numeros.\n")
-    if cantidad_intentos == cantidad_reintentos:
-        raise No_Mas_Reintentos("Se quedó sin intentos, reinicie el programa")
-    return entero
-
+    intentos = cantidad_reintentos
+   
+    while cantidad_reintentos > 0:
+        try:
+            return ingreso_entero(mensaje)
+        except IngresoIncorrecto as err:
+            print(f"No era un número, quedan {cantidad_reintentos}")
+            cantidad_reintentos = cantidad_reintentos -1
+    raise IngresoIncorrecto(f"luego de {intentos}")
 
 def ingreso_entero_restringido(mensaje, valor_minimo=0, valor_maximo=10):
     
@@ -38,20 +37,18 @@ def ingreso_entero_restringido(mensaje, valor_minimo=0, valor_maximo=10):
         if entero >= valor_minimo and entero <= valor_maximo:
             return entero
         else:
-            raise Fuera_De_Rango("El numero ingresado está fuera del rango determinado.")
+            raise FueraDeRango("El numero ingresado está fuera del rango determinado.")
             pass
-    except TypeError as e:
-        raise TypeError("Los valores ingresados no eran numeros, ingrese un numero por favor") from e
+    except TypeError as err:
+        raise TypeError("Los valores ingresados no eran numeros, ingrese un numero por favor") from err
     
-class No_Mas_Reintentos(Exception):
-    """Esta es la Excepcion para la falta de reintentos"""
-    pass
 
-class Fuera_De_Rango(Exception):
+
+class FueraDeRango(Exception):
     """Esta es la Excepcion para cuando se ingresa un número fuera del rango establecido por el usuario"""
     pass
 
-class Ingreso_Incorrecto(Exception):
+class IngresoIncorrecto(Exception):
     """Esta es la Excepcion para el ingreso incorrecto"""
     pass
 
